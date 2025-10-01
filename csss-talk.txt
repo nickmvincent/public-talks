@@ -1,0 +1,5 @@
+Hello!
+
+You can find many artifacts related to the talk I'm giving Oct 1, 2025, at the following link:
+
+https://github.com/nickmvincent/public-talks/tree/main/2025-10_csss_gabm

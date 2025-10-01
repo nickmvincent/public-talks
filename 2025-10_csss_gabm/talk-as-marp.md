@@ -16,7 +16,7 @@ paginate: true
 
 Find a text file with a bunch of links at nickmvincent.com/static/csss-talk.txt
 
-(Includes a Semantic Scholar collection link with all the mentioned papers)
+PDF, MD, Semantic Scholar link w/ mentioned papers,
 
 ---
 
@@ -465,9 +465,14 @@ To be falsifiable, must have a claim/hypothesis put forward
 **Level 0:**
 You have a simulation **S** with no operationalized target
 
-A simulation is: #FILLME
+Simulation: A set of procedures. Pragmatically, a computer simulation contains the agents, code, architectures, data pipelines,and update rules that generate outputs
 
-Examples:
+Note: the “overall goal” of why you created the model is different from a target’s operationalization.
+
+Examples of level 0:
+- Quickstart simulation in your favorite ABM library
+- Conway’s game of life
+- LLM evals: simulations unconcerned with accurately modeling an overall system, but maybe its environment is used to evaluate how LLMs act in it
 
 ---
 
@@ -476,9 +481,10 @@ Examples:
 **Level 1:**
 Target phenomenon **T** needs to be operationalized to be falsifiable
 
-A phenomenon is #FILLME
+A target/phenomenon is the system a modeler is trying to represent.
 
-Examples:
+Examples of level 1:
+Simulations that produce the operationalized output of the target phenomenon, but with no claims about the “how”
 
 ---
 
@@ -487,9 +493,11 @@ Examples:
 **Level 2:**
 **Intent** - Mapping of what mechanisms the components/organization in the simulation represent
 
-An Intent is #FILLME
+The intent contains the scope of the simulation (what it’s should be used for, and importantly, what it should not) and the mapping (what parts of the simulation correspond to what parts of *T* or its hypothesized mechanisms)
 
 Examples:
+- Schelling’s segregation model puts forward a hypothesis of how inadvertent but small preferences may lead to segregation.
+
 
 ---
 
