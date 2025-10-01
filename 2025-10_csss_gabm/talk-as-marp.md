@@ -98,6 +98,17 @@ Talk about some early work from my group on how we might bring "old school" phil
 
 ---
 
+And finally, just share possible touchpoints for future conversations.
+
+Keywords
+
+- AI Social Simulation
+- Content Ecosystems
+- Collective Action with data, collective bargaining for data
+- Responsible AI and AI Safety
+
+---
+
 ## Wait, what is AI Social Simulation?
 
 From HCI / Social Computing:
@@ -156,7 +167,7 @@ This makes them different from other technological advances:
 3. Training: Text used to update model weights via gradient descent
 4. Inference: Model weights shape how LLM responds to prompts
 
-See Gao et al. 2020
+See Gao et al. 2020 ([link](https://arxiv.org/abs/2101.00027))
 
 ---
 
@@ -169,15 +180,14 @@ Individual contributions are small, but:
 
 ---
 
-
----
-
 ## Thought Experiments
 
 Imagine worlds without:
 - Wikipedia
 - People using thumbs up in ChatGPT
 - People posting on Facebook
+
+AI models would have different "behaviors".
 
 ---
 
@@ -190,7 +200,7 @@ Imagine worlds without:
 
 ## Related Work: Jailbreaks Study
 
-"An Audit and Analysis of LLM-Assisted Health Misinformation Jailbreaks Against LLMs" ([link](https://arxiv.org/abs/2508.10010)) - upcoming at AIES next month
+"An Audit and Analysis of LLM-Assisted Health Misinformation Jailbreaks Against LLMs" ([link](https://arxiv.org/abs/2508.10010)) - upcoming at AIES later this month
 - with Ayana Hussain, Patrick Zhao
 
 LLMs can be very good at:
@@ -198,11 +208,22 @@ LLMs can be very good at:
 - Detecting LLM-produced misinformation
 - Though, actual outputs differ from "real" misinformation (e.g. Reddit posts)
 
+---
+
+## And recent work on LLM hacking
+
+Baumann, Joachim, Paul Rottger, Aleksandra Urman, Albert Wendsjo, Flor Miriam Plaza-del-Arco, Johannes B. Gruber and Dirk Hovy. “Large Language Model Hacking: Quantifying the Hidden Risks of Using LLMs for Text Annotation.” (2025).
+
+
+"We quantify the risk of LLM hacking by replicating 37 data annotation tasks from 21 published social science research studies with 18 different models"
+
+---
+
 How can this all be true at once? Prompting models to sample from different parts of the distribution
 
 ---
 
-## There is strong reason to believe the LLM paradigm is useful for social knowledge
+## There is strong reason to believe the LLM paradigm can be useful for social knowledge
 
 Can an LLM placed into some kind of social/economic simulation might tell us something "real" about how real people might respond? Can we capture real knowledge that is similar in character to the regression coefficient in a very good quantitative study that tells us something about human behavior?
 
@@ -284,7 +305,7 @@ Disadvantages to be sure ("governments can never compete with Big Tech!"), but a
 4. New AI models get worse (Wikipedia not updated)
 5. Feedback loop wipes out communities
 
-**Shout out:** CDSC work on ecology of online communities (Mako, Nate, Jeremy, Aaron, Sohyeon, and maybe current students I'll chat with after!)
+**Shout out:** CDSC work on ecology of online communities (started listing names but didn't want to miss anyone!)
 
 See also Tipping Points for Content Ecosystems ([link](https://dataleverage.substack.com/p/tipping-points-for-content-ecosystems))
 
