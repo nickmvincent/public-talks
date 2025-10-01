@@ -161,7 +161,7 @@ This makes them different from other technological advances:
 
 ## Quick Primer: How Content Becomes Model Behavior
 
-**The training pipeline:**
+The training pipeline
 1. Data collection: Your Wikipedia edit, arXiv paper, tweet, Bluesky post gets scraped
 2. Dataset curation: Included in training corpus (e.g., Common Crawl, The Pile)
 3. Training: Text used to update model weights via gradient descent
@@ -198,7 +198,7 @@ AI models would have different "behaviors".
 
 ---
 
-## Related Work: Jailbreaks Study
+## One recent work: Generating Misinfo Jailbreaks, Comparing them to Social Media Data
 
 "An Audit and Analysis of LLM-Assisted Health Misinformation Jailbreaks Against LLMs" ([link](https://arxiv.org/abs/2508.10010)) - upcoming at AIES later this month
 - with Ayana Hussain, Patrick Zhao
@@ -206,7 +206,6 @@ AI models would have different "behaviors".
 LLMs can be very good at:
 - Generating jailbreaks that get other LLMs to produce misinformation
 - Detecting LLM-produced misinformation
-- Though, actual outputs differ from "real" misinformation (e.g. Reddit posts)
 
 ---
 
@@ -219,15 +218,17 @@ Baumann, Joachim, Paul Rottger, Aleksandra Urman, Albert Wendsjo, Flor Miriam Pl
 
 ---
 
-How can this all be true at once? Prompting models to sample from different parts of the distribution
+## There is strong reason to believe the LLM paradigm can be useful for social knowledge
+
+Can an LLM placed into some kind of social/economic simulation might tell us something "real" about how real people might respond? 
+
+Can we capture real knowledge that is similar in character to the regression coefficient in a very good quantitative study that tells us something about human behavior?
 
 ---
 
-## There is strong reason to believe the LLM paradigm can be useful for social knowledge
+## Models "respond" a certain way because of collective behaviour ensconced in data records and now model weights.
 
-Can an LLM placed into some kind of social/economic simulation might tell us something "real" about how real people might respond? Can we capture real knowledge that is similar in character to the regression coefficient in a very good quantitative study that tells us something about human behavior?
-
-I think it *is* possible that a model responds a certain way because of collective behaviour ensconced in data records and now model weights.
+We can make falsifiable claims about causal impact of data. We *can* examine specific data counterfactuals.
 
 ---
 
@@ -282,9 +283,7 @@ Technical aspects of the work involve data poisoning, scaling, attribution, etc.
 
 ---
 
-## Public AI
-
-We could support public bodies that build/deploy AI
+## Public AI - public bodies that build/deploy AI
 
 Disadvantages to be sure ("governments can never compete with Big Tech!"), but also benefits:
 - More likely to deploy transparent/open models
@@ -304,6 +303,8 @@ Disadvantages to be sure ("governments can never compete with Big Tech!"), but a
 3. Volunteer energy "dries up"
 4. New AI models get worse (Wikipedia not updated)
 5. Feedback loop wipes out communities
+
+---
 
 **Shout out:** CDSC work on ecology of online communities (started listing names but didn't want to miss anyone!)
 
@@ -333,7 +334,7 @@ See e.g.: Karan et al. 2025 ([link](https://dl.acm.org/citation.cfm?id=3732098))
 ## The Promise and Problem of LLM Social Simulation
 
 Why it could be very good:
-- Lots of true causal knowledge about social interaction embedded in weights
+- There might be real knowledge, hints of causality, etc. in model weights
 - Drawing on massive amounts of real human data
 
 ---
@@ -345,6 +346,8 @@ Why it could be very good:
 - **All are "???" right now**
 
 ---
+
+## Back to Goal #2 (advocacy)
 
 Ok, so we could just stop here, and say. Well if we knew *more* about the training data selection and weighting, we could do better in some sense. But that doesn't actually help us deal with the some of the more foundational challenges with using simulation for various research goals.
 
@@ -369,7 +372,7 @@ Instead of: "How does this behavior arise and change?"
 
 ## Believability != Understanding
 
-Larooij et al. survey ([link](https://arxiv.org/abs/2504.03274) found:
+Larooij et al. survey ([link](https://arxiv.org/abs/2504.03274)) found:
 - Most metrics focus on "believability" as evaluation
 - Human or LLM as judge
 
@@ -464,7 +467,6 @@ Large providers almost certainly split operations across multiple GPUs
 
 **Goal:** Reduce overhead of needing domain knowledge from philosophy of science
 
-
 ---
 
 (In the spirt of this seminar, it seems we really need people chatting across departments, our CS grad students to get course credit for going to take an STS course...)
@@ -488,7 +490,7 @@ You have a simulation **S** with no operationalized target
 
 Simulation: A set of procedures. Pragmatically, a computer simulation contains the agents, code, architectures, data pipelines,and update rules that generate outputs
 
-Note: the “overall goal” of why you created the model is different from a target’s operationalization.
+---
 
 Examples of level 0:
 - Quickstart simulation in your favorite ABM library
@@ -502,10 +504,6 @@ Examples of level 0:
 **Level 1:**
 Target phenomenon **T** needs to be operationalized to be falsifiable
 
-A target/phenomenon is the system a modeler is trying to represent.
-
-Examples of level 1:
-Simulations that produce the operationalized output of the target phenomenon, but with no claims about the “how”
 
 ---
 
@@ -515,10 +513,6 @@ Simulations that produce the operationalized output of the target phenomenon, bu
 **Intent** - Mapping of what mechanisms the components/organization in the simulation represent
 
 The intent contains the scope of the simulation (what it’s should be used for, and importantly, what it should not) and the mapping (what parts of the simulation correspond to what parts of *T* or its hypothesized mechanisms)
-
-Examples:
-- Schelling’s segregation model puts forward a hypothesis of how inadvertent but small preferences may lead to segregation.
-
 
 ---
 
@@ -541,6 +535,7 @@ By evaluating your sim using this framework:
 - Easier way to think about background epistemology
 - Clarifies epistemic contributions at different levels
 
+---
 
 ## Connecting the Dots
 
