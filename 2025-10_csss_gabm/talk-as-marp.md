@@ -543,4 +543,9 @@ Final thoughts on connecting the dots
 
 ---
 
+Thank you!
+
+nickmvincent.com
+
+---
 <!-- _class: lead -->
