@@ -15,30 +15,50 @@ class: lead
 - Matthew Prewitt (RadicalxChange)
 - Hanlin Li (University of Texas at Austin)
 
+<!--testing-->
+
+---
+
+## In one slide:
+
+Collective bargaining in the information economy / Collective bargaining for information (CBI) = data creators and stewards negotiate with AI builders around data use.
+
+
+Why?
+
+- friction in information markets to prevent power concentration
+- incentives to produce trustworthy information (involves: recording the state of the world, creating high quality structured content and records).
+
+Making CBI operational will require a coalition across research, policy, and practice, with a focus on coordination of wins (e.g. ensure that technical work on data attribution and control feeds directly into regulation; design regulation so that it is easier to do this technical work).
+
 ---
 
 ## Immediate Asks
 
-- Information creators: organize, negotiate, or pause unnegotiated training access
-- Technical community (ML, HCI): deliver interpretability, valuation, and data control tools
-- Regulators: provide antitrust safe harbors for collective bargaining on information use
+- Information creators (e.g., researchers, writers, artists, coders): create and join data intermediaries that handle flow of data to AI builders
+- Technical community (ML, HCI): deliver interpretability, attribution/valuation, and data control tools
+- Regulators: provide antitrust safe harbors for CBI
 - AI safety & policy circles: treat CBI as core power-balancing work
-- Tech companies: engage in good-faith CBI to improve trust and data quality
+- Tech companies: engage in good-faith CBI to improve trust and data quality (for many tech companies, will create better products + maintain good relations with customers).
 
 ---
 
 ## Core Idea
 
-- Collective Bargaining in the Information Economy (CBI) gives information stewards leverage with AI builders
-- Healthy friction restrains power concentration and keeps incentives to create new knowledge
+- Some friction around information acquisition/transactions is needed to prevent power concentration and maintain incentives to create new knowledge
 
 ---
 
-## Why AI Deepens Market Failures
+## Why AI Exacerbates Information Market Failures
 
-- Information is cheap to copy, nonrivalrous, and chronically under-compensated
-- Stronger models extract more value and weaken practical IP protections
-- Without CBI, financial, informational, and decision power centralizes
+In short: there are well known issues with designing markets for information/data/knowledge. AI progress makes it easier for powerful actors to extract value from data while eroding previous compensation/governance mechanisms.
+
+- Information is cheap to copy, hard to exclude, often nonrivalrous
+- Create issues with pricing. Humans have a long-history of attempts to create imperfect property rights around data/information/knowledge
+- Stronger models threaten existing imperfect solutions, make it easier for powerful actors to extract value from datasets
+- Potential for financial, informational, and decision power to centralize
+
+(More in paper + related work)
 
 ---
 
@@ -54,23 +74,22 @@ Negotiations cover fair terms of use, compensation, downstream limits, and trans
 
 ## CBI Is Already Emerging
 
-- Data deals, cultural labor contracts, and guild experiments show early traction
-- A coordinated coalition can move this from scattered deals to durable infrastructure
+- Data deals (content platforms like Reddit), labor negotiations that center AI (e.g. SAG-AFTRA)
+- A coordinated coalition can move beyond scattered deals
 - Not a cure-all, but a practical lever for better near-term and long-term equilibria
 
 ---
 
-## Power & Safety Stakes
+## The Stakes
 
-- Political and moral risks: democratic instability, narrowed creative diversity, entrenched elites
-- Technical and economic risks: fragile data ecosystems, less reliable models, feedback loops favoring incumbents
-- CBI distributes control, creates accountable intermediaries, and prioritizes data-centric investment
+- Political and moral risk of power concentration: democratic instability, narrowed creative diversity, feedback loops (feedback loops are scary!)
+- Technical risks: fragile data ecosystems (both volunteer communities like Wikipedia and professional industries like journalism) -> less reliable models
 
 ---
 
 ## Technical Foundations for Bargaining
 
-- Data value estimation (influence functions, data Shapley, metagradients) prices contributions
+- Data value estimation (influence functions, data Shapley, etc.) can help pricing
 - Scaling and selection studies chart payoff trajectories for new or different data
 - Data poisoning and robustness work clarifies the cost of ignoring negotiated safeguards
 - Algorithmic collective action offers tooling for coordinated data supply
@@ -79,11 +98,12 @@ Together these methods ground bargaining in credible counterfactual evidence.
 
 ---
 
-## Coalition & Complementary Approaches
+## Complements alternative views
 
-- Connect researchers, information producers, AI developers, policymakers, and civil society to align incentives
-- Pair policy support with technical attribution to reinforce both
-- Open ecosystems and top-down regulation help, but CBI supplies the missing bargaining mechanism
+- Solve via open-source approach?
+- Solve via top-down regulation?
+
+Can complement both and fill gaps (mainly: solving the incentive problem)!
 
 ---
 
