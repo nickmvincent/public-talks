@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Renaissance Systems — Static Triptych</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Renaissance palette */
+      --parchment-1: #f6ecd9;  /* light */
+      --parchment-2: #ecd7b7;  /* mid */
+      --ink-umber:   #5f3b1f;  /* outlines */
+      --ink-sienna:  #7b4a28;  /* secondary lines */
+      --ultramarine: #2b4c7e;  /* blue accent */
+      --verdigris:   #3b7a57;  /* green accent */
+      --carmine:     #8b2c24;  /* red accent */
+      --gold:        #b9902e;  /* gilded highlight */
+      --text:        #2a241d;
+      --muted:       #5a5145;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 800px at 70% 20%, var(--parchment-1) 0%, var(--parchment-2) 100%);
+      color: var(--text);
+      font-family: 'Lora', Georgia, serif;
+      min-height:100vh;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 18px;
+    }
+    .panel{
+      position:relative;
+      border: 1px solid rgba(95,59,31,0.25);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.25));
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08), inset 0 0 60px rgba(185,144,46,0.06);
+      display:flex; flex-direction:column; padding:14px; gap:8px;
+    }
+    h2{
+      margin:0 0 4px 0;
+      font-family: 'EB Garamond', Garamond, serif;
+      letter-spacing: 0.02em;
+      font-weight:700; font-size: 20px;
+    }
+    .subtitle{ color: var(--muted); font-size: 12px; font-style: italic; }
+    .art{ flex:1; border-radius: 10px; overflow:hidden; }
+    .controls{ display:flex; gap:8px; justify-content:flex-end; }
+    button{
+      font-family:'EB Garamond', serif; font-size:12px; letter-spacing:0.02em;
+      border:1px solid rgba(95,59,31,0.45); background:rgba(255,255,255,0.4);
+      border-radius:10px; padding:6px 10px; cursor:pointer; color:var(--text);
+    }
+    button:active{ transform: translateY(1px); }
+  </style>
+</head>
+<body>
+  <!-- Panel 1: Runaway Power Accumulation (Golden Spiral) -->
+  <section class="panel">
+    <div>
+      <h2>Runaway Power Accumulation</h2>
+      <div class="subtitle">A positive feedback traced as a growth spiral</div>
+    </div>
+    <svg id="panel1" class="art" viewBox="0 0 900 1200" role="img" aria-label="Golden spiral representing runaway accumulation"></svg>
+    <div class="controls"><button data-export="#panel1">Download SVG</button></div>
+  </section>
+
+  <!-- Panel 2: Collective Bargaining for Information (Vesica + Ring) -->
+  <section class="panel">
+    <div>
+      <h2>Collective Bargaining for Information</h2>
+      <div class="subtitle">Consensus emerging in the vesica piscis</div>
+    </div>
+    <svg id="panel2" class="art" viewBox="0 0 900 1200" role="img" aria-label="Intersecting circles and nodes representing bargaining"></svg>
+    <div class="controls"><button data-export="#panel2">Download SVG</button></div>
+  </section>
+
+  <!-- Panel 3: Healthy Ecosystem (Nested Circles Network) -->
+  <section class="panel">
+    <div>
+      <h2>Healthy Ecosystem</h2>
+      <div class="subtitle">Diversity, balance, and exchange</div>
+    </div>
+    <svg id="panel3" class="art" viewBox="0 0 900 1200" role="img" aria-label="Nested circles and network suggesting balance"></svg>
+    <div class="controls"><button data-export="#panel3">Download SVG</button></div>
+  </section>
+
+<script>
+  // --- Shared defs: parchment texture & ink styles ---
+  function addSharedDefs(svg){
+    const defs = svg.append('defs');
+    // Paper noise texture
+    const filt = defs.append('filter').attr('id','paper').attr('x','-20%').attr('y','-20%').attr('width','140%').attr('height','140%');
+    filt.append('feTurbulence').attr('type','fractalNoise').attr('baseFrequency',0.9).attr('numOctaves',1).attr('seed',2).attr('result','noise');
+    filt.append('feColorMatrix').attr('in','noise').attr('type','matrix')
+      .attr('values','0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .12 0');
+    // subtle vignette
+    const grad = defs.append('radialGradient').attr('id','vignette');
+    grad.append('stop').attr('offset','0%').attr('stop-color','rgba(0,0,0,0)');
+    grad.append('stop').attr('offset','100%').attr('stop-color','rgba(0,0,0,0.18)');
+    return defs;
+  }
+
+  function backgroundParchment(svg){
+    const {width, height} = svg.node().viewBox.baseVal;
+    svg.append('rect').attr('x',0).attr('y',0).attr('width',width).attr('height',height)
+      .attr('fill','url(#bgGrad)');
+    svg.append('rect').attr('x',0).attr('y',0).attr('width',width).attr('height',height)
+      .attr('filter','url(#paper)')
+      .attr('fill','none');
+    svg.append('rect').attr('x',0).attr('y',0).attr('width',width).attr('height',height)
+      .attr('fill','url(#vignette)');
+  }
+
+  function addBGGradient(svg){
+    // panel-specific gradient so ids don't collide
+    const defs = svg.select('defs');
+    const gid = 'bgGrad';
+    const g = defs.append('linearGradient').attr('id', gid).attr('x1','0%').attr('y1','0%').attr('x2','0%').attr('y2','100%');
+    g.append('stop').attr('offset','0%').attr('stop-color', getComputedStyle(document.documentElement).getPropertyValue('--parchment-1'));
+    g.append('stop').attr('offset','100%').attr('stop-color', getComputedStyle(document.documentElement).getPropertyValue('--parchment-2'));
+  }
+
+  // Thin pen style helper
+  function ink(selection, colorVar='--ink-umber', width=2){
+    return selection.attr('stroke', getComputedStyle(document.documentElement).getPropertyValue(colorVar).trim())
+      .attr('stroke-width', width).attr('fill','none');
+  }
+
+  // --- Panel 1: Golden spiral ---
+  (function(){
+    const svg = d3.select('#panel1');
+    addSharedDefs(svg); addBGGradient(svg); backgroundParchment(svg);
+    const vb = svg.node().viewBox.baseVal; const W = vb.width, H = vb.height; const g = svg.append('g');
+
+    // Golden rectangle frame
+    const margin = 60; const h = H - margin*2; const w = h * 1.618; const x0 = (W - w)/2; const y0 = margin;
+    const frame = g.append('rect').attr('x',x0).attr('y',y0).attr('width',w).attr('height',h).attr('rx',8);
+    ink(frame,'--ink-sienna',1.5);
+
+    // Logarithmic spiral approximating golden spiral
+    const a = 3; const b = 0.145; // controls curvature
+    const cx = x0 + w*0.0 + w*0.382; const cy = y0 + h*0.5; // biased center to fit frame
+    const theta0 = 0.2, theta1 = 4.8*Math.PI; // multiple turns
+    const pts = d3.range(800).map(i=>{
+      const t = theta0 + (theta1-theta0)*i/799;
+      const r = a * Math.exp(b*t) * (h*0.095);
+      return [cx + r*Math.cos(t), cy + r*Math.sin(t)];
+    });
+
+    const spiral = g.append('path').attr('d', d3.line()(pts));
+    ink(spiral,'--ink-umber',2.2);
+
+    // Thickness accent along later segments
+    const accent = g.append('path').attr('d', d3.line().curve(d3.curveCatmullRom.alpha(0.6))(pts.slice(pts.length*0.55)) )
+      .attr('stroke', getComputedStyle(document.documentElement).getPropertyValue('--carmine').trim() )
+      .attr('fill','none').attr('stroke-width',3);
+
+    // Golden ratio marks
+    const phi = 1.618; let rx = x0, ry = y0, rw = w, rh = h; const marks = g.append('g');
+    for(let i=0;i<5;i++){
+      const r = marks.append('rect').attr('x',rx).attr('y',ry).attr('width',rw).attr('height',rh).attr('rx',4);
+      ink(r,'--ink-sienna',1);
+      if(i%2===0){ rw = rw/phi; rx = rx + rw; } else { rh = rh/phi; ry = ry + rh; }
+    }
+
+    // Caption
+    const cap = svg.append('text').attr('x', W/2).attr('y', H-28).attr('text-anchor','middle').text('Positive feedback spirals outward when gain > 1');
+    cap.attr('font-family','EB Garamond').attr('font-size',16).attr('fill', getComputedStyle(document.documentElement).getPropertyValue('--muted').trim());
+  })();
+
+  // --- Panel 2: Vesica + ring of negotiators ---
+  (function(){
+    const svg = d3.select('#panel2');
+    addSharedDefs(svg); addBGGradient(svg); backgroundParchment(svg);
+    const vb = svg.node().viewBox.baseVal; const W = vb.width, H = vb.height; const g = svg.append('g');
+
+    const cx = W/2, cy = H*0.46; const R = Math.min(W, H)*0.24; // main circle radius
+
+    // Intersecting circles (vesica)
+    const c1 = g.append('circle').attr('cx', cx - R*0.6).attr('cy', cy).attr('r', R);
+    const c2 = g.append('circle').attr('cx', cx + R*0.6).attr('cy', cy).attr('r', R);
+    ink(c1,'--ultramarine',2); ink(c2,'--ultramarine',2);
+
+    // Overlap lens fill (consensus)
+    const pathLens = lensPath(cx-R*0.6, cy, R, cx+R*0.6, cy, R);
+    g.append('path').attr('d', pathLens).attr('fill', '#2b4c7e20').attr('stroke','none');
+
+    // Ring of negotiators on an outer circle
+    const Rring = R*1.45; const n = 10; const nodes = d3.range(n).map(i=>{
+      const a = -Math.PI/2 + i*(2*Math.PI/n);
+      return {x: cx + Rring*Math.cos(a), y: cy + Rring*Math.sin(a)};
+    });
+    // chords (dialog lines)
+    nodes.forEach((na,i)=>{
+      const nb = nodes[(i+3)%n];
+      const l = g.append('line').attr('x1',na.x).attr('y1',na.y).attr('x2',nb.x).attr('y2',nb.y);
+      ink(l,'--ink-sienna',1);
+    });
+
+    // nodes
+    g.selectAll('circle.node').data(nodes).enter().append('circle')
+      .attr('class','node').attr('cx',d=>d.x).attr('cy',d=>d.y).attr('r',6)
+      .attr('fill', getComputedStyle(document.documentElement).getPropertyValue('--carmine').trim());
+
+    // Titles around lens
+    svg.append('text').attr('x',cx).attr('y',cy - R*0.1).attr('text-anchor','middle')
+      .attr('font-family','EB Garamond').attr('font-size',18).attr('fill', getComputedStyle(document.documentElement).getPropertyValue('--ultramarine').trim())
+      .text('Consensus Region');
+
+    svg.append('text').attr('x',cx).attr('y',H-28).attr('text-anchor','middle')
+      .attr('font-family','EB Garamond').attr('font-size',16).attr('fill', getComputedStyle(document.documentElement).getPropertyValue('--muted').trim())
+      .text('Negotiation geometry reveals overlap of shared beliefs');
+
+    function lensPath(x1,y1,r1,x2,y2,r2){
+      // Construct path for intersection region of two circles
+      const d = Math.hypot(x2-x1, y2-y1);
+      if(d>=r1+r2) return '';
+      const a = (r1*r1 - r2*r2 + d*d)/(2*d);
+      const h = Math.sqrt(Math.max(0, r1*r1 - a*a));
+      const xm = x1 + a*(x2-x1)/d, ym = y1 + a*(y2-y1)/d;
+      const xs1 = xm + h*(y2 - y1)/d, ys1 = ym - h*(x2 - x1)/d;
+      const xs2 = xm - h*(y2 - y1)/d, ys2 = ym + h*(x2 - x1)/d;
+      const laf = 0, sw = 0;
+      return `M ${xs1},${ys1} A ${r1},${r1} 0 0,1 ${xs2},${ys2} A ${r2},${r2} 0 0,1 ${xs1},${ys1} Z`;
+    }
+  })();
+
+  // --- Panel 3: Healthy Ecosystem ---
+  (function(){
+    const svg = d3.select('#panel3');
+    addSharedDefs(svg); addBGGradient(svg); backgroundParchment(svg);
+    const vb = svg.node().viewBox.baseVal; const W = vb.width, H = vb.height; const g = svg.append('g');
+
+    const cx = W/2, cy = H*0.5;
+    const rings = [220, 340, 440];
+
+    // habitat rings
+    rings.forEach((r,i)=>{
+      const circle = g.append('circle').attr('cx',cx).attr('cy',cy).attr('r',r);
+      ink(circle, i===1 ? '--verdigris' : '--ink-sienna',  i===1? 2 : 1.2);
+    });
+
+    // species nodes placed along rings
+    const species = [];
+    rings.forEach((r,ri)=>{
+      const count = [10, 14, 18][ri];
+      for(let i=0;i<count;i++){
+        const a = (i/count)*2*Math.PI + (ri*0.12);
+        species.push({x: cx + r*Math.cos(a), y: cy + r*Math.sin(a), r: 6 + (ri*2)});
+      }
+    });
+
+    // resource exchange links (random sampling of pairs)
+    const links = d3.shuffle(d3.cross(d3.range(species.length), d3.range(species.length)))
+      .slice(0, 120)
+      .map(([i,j])=> ({source: species[i], target: species[j]}))
+      .filter(d=> d.source!==d.target && Math.hypot(d.source.x-d.target.x, d.source.y-d.target.y) < 420);
+
+    links.forEach((L,k)=>{
+      const l = g.append('line').attr('x1',L.source.x).attr('y1',L.source.y).attr('x2',L.target.x).attr('y2',L.target.y);
+      ink(l,'--ink-sienna', 0.6);
+    });
+
+    // nodes
+    g.selectAll('circle.sp').data(species).enter().append('circle')
+      .attr('class','sp').attr('cx',d=>d.x).attr('cy',d=>d.y).attr('r',d=>d.r)
+      .attr('fill', (d,i)=> i%3===0 ? getComputedStyle(document.documentElement).getPropertyValue('--verdigris').trim() : '#3b7a5733')
+      .attr('stroke', getComputedStyle(document.documentElement).getPropertyValue('--verdigris').trim()).attr('stroke-width',1);
+
+    // caption
+    svg.append('text').attr('x',W/2).attr('y', H-28).attr('text-anchor','middle')
+      .attr('font-family','EB Garamond').attr('font-size',16).attr('fill', getComputedStyle(document.documentElement).getPropertyValue('--muted').trim())
+      .text('A resilient ecology shares resources across nested habitats');
+  })();
+
+  // --- Export buttons for each panel ---
+  document.querySelectorAll('button[data-export]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const sel = btn.getAttribute('data-export');
+      const svg = document.querySelector(sel);
+      const clone = svg.cloneNode(true);
+      // ensure embedded styles are preserved by serializing current document styles
+      const serializer = new XMLSerializer();
+      let src = serializer.serializeToString(clone);
+      const blob = new Blob([src], {type: 'image/svg+xml;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = `${sel.replace('#','')}_renaissance.svg`;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(()=> URL.revokeObjectURL(url), 1000);
+    });
+  });
+</script>
+</body>
+</html>

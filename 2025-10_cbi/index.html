@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collective Bargaining in the Information Economy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: rgb(20, 20, 20);
+            --accent: rgb(100, 100, 240);
+            --light: rgb(245, 245, 245);
+            --medium: rgb(120, 120, 120);
+            --white: rgb(255, 255, 255);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0 3rem;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--medium);
+            margin-bottom: 2rem;
+        }
+
+        .authors {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .authors strong {
+            color: var(--primary);
+        }
+
+        .affiliations {
+            font-size: 0.95rem;
+            color: var(--medium);
+            margin-bottom: 1rem;
+        }
+
+        .conference {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .hero {
+            background: var(--white);
+            border: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero ul {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .hero li {
+            margin-bottom: 1rem;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .card ul {
+            margin-left: 1.5rem;
+        }
+
+        .card li {
+            margin-bottom: 0.8rem;
+        }
+
+        .actions {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .actions h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .action-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 8px;
+        }
+
+        .action-item h3 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .action-item p {
+            font-size: 0.95rem;
+            color: var(--primary);
+        }
+
+        .takeaway {
+            background: var(--white);
+            border: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .takeaway h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .takeaway p {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact {
+            font-size: 1rem;
+            color: var(--medium);
+            font-family: 'Courier New', monospace;
+        }
+
+        .callout {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(100,100,240,0.1);
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+
+        .diagram {
+            margin: 2rem auto;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .diagram-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .diagram-node {
+            background: rgba(100, 100, 240, 0.1);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: inline-block;
+            min-width: 200px;
+            max-width: 220px;
+            vertical-align: middle;
+        }
+
+        .diagram-arrow {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .diagram-node.circle {
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            min-width: 160px;
+            padding: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 968px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Collective Bargaining in the Information Economy</h1>
+            <p class="subtitle">Can Address AI-Driven Power Concentration</p>
+            <p class="authors">
+                <strong>Nicholas Vincent</strong><sup>1</sup> &nbsp;
+                <strong>Matthew Prewitt</strong><sup>2</sup> &nbsp;
+                <strong>Hanlin Li</strong><sup>3</sup>
+            </p>
+            <p class="affiliations">
+                <sup>1</sup>Simon Fraser University &nbsp;
+                <sup>2</sup>RadicalxChange &nbsp;
+                <sup>3</sup>University of Texas at Austin
+            </p>
+            <p class="conference">NeurIPS Position Papers 2025</p>
+        </header>
+
+        <section class="hero">
+            <h2>What is CBI?</h2>
+            <p><strong>Collective Bargaining for Information</strong> means data creators negotiate with AI builders over data use</p>
+
+            <div class="diagram">
+                <div class="diagram-node">
+                    <strong>Data Creators</strong><br>
+                    <small>researchers, writers, artists, communities</small>
+                </div>
+                <div class="diagram-arrow">↔</div>
+                <div class="diagram-node circle">
+                    <div>Data<br>Intermediary</div>
+                </div>
+                <div class="diagram-arrow">↔</div>
+                <div class="diagram-node">
+                    <strong>AI Builders</strong><br>
+                    <small>labs, tech companies, model developers</small>
+                </div>
+            </div>
+
+            <ul>
+                <li><strong>Data intermediaries</strong> represent creators, curators, and communities</li>
+                <li><strong>AI operators</strong> build and deploy models using their data</li>
+                <li><strong>Negotiations</strong> cover fair terms, compensation, limits, transparency</li>
+            </ul>
+        </section>
+
+        <div class="two-col">
+            <div class="card">
+                <h2>The Problem</h2>
+                <h3>Information Markets Fail</h3>
+                <ul>
+                    <li>Information is cheap to copy, hard to exclude</li>
+                    <li>Competitive markets drive price toward zero</li>
+                    <li>Producers struggle to capture value</li>
+                    <li>Centuries of imperfect solutions: IP rights, secrecy, monopolies</li>
+                </ul>
+
+                <h3>AI Makes It Worse</h3>
+                <ul>
+                    <li>Stronger models extract value more efficiently</li>
+                    <li>Erodes copyright and traditional protections</li>
+                    <li><strong>Risk: extreme power concentration—a potential "capital singularity"</strong></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>The Solution</h2>
+                <h3>CBI Creates Friction To:</h3>
+                <ul>
+                    <li>Prevent unchecked value extraction by powerful actors</li>
+                    <li>Maintain incentives to produce high-quality information</li>
+                    <li>Distribute bargaining power more evenly</li>
+                </ul>
+
+                <h3>Benefits</h3>
+                <ul>
+                    <li>Higher quality data → better, safer AI models</li>
+                    <li>Prevents collapse of information ecosystems (journalism, Wikipedia, etc.)</li>
+                    <li>Better data provenance and transparency</li>
+                    <li>Built-in accountability for AI development</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="card">
+            <h2>The Stakes</h2>
+            <div class="two-col" style="margin-bottom: 0;">
+                <div>
+                    <h3>Political & Moral Risks</h3>
+                    <ul>
+                        <li>Democratic instability from labor disruption</li>
+                        <li>Narrowed creative and cultural diversity</li>
+                        <li>Homogenization of moral and social norms</li>
+                        <li>Feedback loops that accelerate concentration</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Technical Risks</h3>
+                    <ul>
+                        <li>Fragile information ecosystems</li>
+                        <li>Less reliable, lower-quality models</li>
+                        <li>Unpredictable harms from opaque systems</li>
+                        <li>Loss of diverse training data sources</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="actions">
+            <h2>Immediate Actions</h2>
+            <div class="action-grid">
+                <div class="action-item">
+                    <h3>Information Creators</h3>
+                    <p>Form and join data intermediaries that handle data flow to AI builders</p>
+                </div>
+                <div class="action-item">
+                    <h3>Technical Community</h3>
+                    <p>Deliver interpretability, attribution, and data control tools</p>
+                </div>
+                <div class="action-item">
+                    <h3>Regulators</h3>
+                    <p>Provide antitrust safe harbors for CBI</p>
+                </div>
+                <div class="action-item">
+                    <h3>AI Safety Community</h3>
+                    <p>Treat CBI as core power-balancing work</p>
+                </div>
+                <div class="action-item">
+                    <h3>Tech Companies</h3>
+                    <p>Engage in good-faith CBI for trust and quality</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Technical Foundations</h2>
+            <p style="margin-bottom: 1.5rem; text-align: center;">Research areas that support CBI:</p>
+            <div class="two-col" style="margin-bottom: 0;">
+                <div>
+                    <h3>Data Valuation & Attribution</h3>
+                    <ul>
+                        <li>Influence functions, data Shapley</li>
+                        <li>Attribution methods</li>
+                        <li>Scaling studies</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Data Control & Robustness</h3>
+                    <ul>
+                        <li>Federated learning, consent infrastructure</li>
+                        <li>Provenance tracking</li>
+                        <li>Data poisoning and adversarial research</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="callout">
+                <strong>Together, these methods ground bargaining in credible counterfactual evidence</strong>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>CBI Is Already Emerging</h2>
+            <ul style="font-size: 1.1rem;">
+                <li>Data licensing deals (e.g., Reddit, news publishers with OpenAI)</li>
+                <li>Labor negotiations centered on AI (e.g., SAG-AFTRA)</li>
+                <li>Artist coalitions and opt-out movements</li>
+            </ul>
+            <div class="callout" style="font-size: 1.2rem; margin-top: 2rem; padding: 1.5rem;">
+                <strong>A coordinated coalition can move beyond scattered deals to establish systemic change</strong><br>
+                <span style="font-size: 1rem; color: var(--medium);">Not a cure-all, but a practical lever for better equilibria</span>
+            </div>
+        </section>
+
+        <section class="takeaway">
+            <h2>Takeaway</h2>
+            <p><strong>A healthy information economy incentivizes the creation and curation of information and distributes power more evenly.</strong></p>
+            <p>Collective bargaining for information is one step toward that goal.</p>
+            <p style="margin-top: 2rem; font-size: 1.1rem;"><strong>Reach out if you want to help build it.</strong></p>
+            <p class="contact" style="margin-top: 1rem;">
+                nvincent@sfu.ca &nbsp;•&nbsp; matt@radicalxchange.org &nbsp;•&nbsp; lihanlin@utexas.edu
+            </p>
+        </section>
+    </div>
+</body>
+</html>

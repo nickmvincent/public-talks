@@ -1,0 +1,372 @@
+% Minimalist CBI Poster
+\documentclass[12pt]{article}
+\usepackage[paperwidth=36in,paperheight=48in,margin=1.5in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage{helvet}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Minimalist color scheme
+\definecolor{primary}{RGB}{20,20,20}
+\definecolor{accent}{RGB}{100,100,240}
+\definecolor{light}{RGB}{245,245,245}
+\definecolor{medium}{RGB}{120,120,120}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\begin{document}
+
+\pagecolor{light}
+
+\begin{center}
+
+% HEADER
+\vspace*{0.5in}
+
+{\fontsize{60}{70}\selectfont\bfseries\color{primary}
+Collective Bargaining in the Information Economy
+}
+
+\vspace{0.3in}
+
+{\fontsize{32}{40}\selectfont\color{medium}
+Can Address AI-Driven Power Concentration
+}
+
+\vspace{0.5in}
+
+{\fontsize{24}{30}\selectfont\color{primary}
+\textbf{Nicholas Vincent}\textsuperscript{1} \quad
+\textbf{Matthew Prewitt}\textsuperscript{2} \quad
+\textbf{Hanlin Li}\textsuperscript{3}
+}
+
+\vspace{0.2in}
+
+{\fontsize{18}{24}\selectfont\color{medium}
+\textsuperscript{1}Simon Fraser University \quad
+\textsuperscript{2}RadicalxChange \quad
+\textsuperscript{3}UT Austin
+}
+\quad
+{\fontsize{18}{24}\selectfont\color{accent}
+NeurIPS 2025
+}
+
+\vspace{0.6in}
+
+% WHAT IS CBI BOX
+\begin{tikzpicture}
+\node[rectangle,draw=accent,line width=5pt,fill=white,inner sep=0.8in,text width=30in,align=center] {
+{\fontsize{36}{44}\selectfont\bfseries\color{accent} What is CBI?}
+
+\vspace{0.3in}
+
+{\fontsize{22}{28}\selectfont\color{primary}
+\textbf{Collective Bargaining for Information:} data creators negotiate with AI builders over data use
+}
+
+\vspace{0.4in}
+
+\begin{minipage}{28in}
+\centering
+\begin{tikzpicture}[node distance=1in]
+\node[rectangle,draw=accent,line width=3pt,fill=accent!10,minimum width=6.5in,minimum height=2.8in,align=center,font=\fontsize{20}{26}\selectfont] (creators)
+  {\textbf{Data Creators}\\\fontsize{17}{22}\selectfont researchers, writers,\\artists, communities};
+\node[right=of creators,font=\fontsize{36}{44}\selectfont\color{accent}] (arrow1) {$\leftrightarrow$};
+\node[right=of arrow1,circle,draw=accent,line width=4pt,fill=accent,text=white,minimum size=3.5in,align=center,font=\fontsize{22}{28}\selectfont\bfseries] (intermediary)
+  {Data\\Intermediary};
+\node[right=of intermediary,font=\fontsize{36}{44}\selectfont\color{accent}] (arrow2) {$\leftrightarrow$};
+\node[right=of arrow2,rectangle,draw=accent,line width=3pt,fill=accent!10,minimum width=6.5in,minimum height=2.8in,align=center,font=\fontsize{20}{26}\selectfont] (ai)
+  {\textbf{AI Builders}\\\fontsize{17}{22}\selectfont labs, tech companies,\\model developers};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{0.35in}
+
+\begin{minipage}{28in}
+{\fontsize{19}{25}\selectfont\color{primary}
+\begin{itemize}[leftmargin=0.8in,itemsep=0.15in]
+\item \textbf{Intermediaries} represent creators, curators, communities
+\item \textbf{AI operators} build models using their data
+\item \textbf{Negotiations} cover terms, compensation, limits, transparency
+\end{itemize}
+}
+\end{minipage}
+};
+\end{tikzpicture}
+
+\vspace{0.7in}
+
+\end{center}
+
+% TWO COLUMN SECTION
+\begin{minipage}[t]{0.48\textwidth}
+\begin{center}
+{\fontsize{32}{40}\selectfont\bfseries\color{accent} The Problem}
+\end{center}
+
+\vspace{0.3in}
+
+{\fontsize{20}{26}\selectfont\color{primary}
+
+\textbf{Information markets fail:}
+
+\begin{itemize}[leftmargin=0.4in,itemsep=0.15in]
+\item Information is cheap to copy, hard to exclude
+\item Competitive markets drive price to zero
+\item Producers struggle to capture value
+\end{itemize}
+
+\vspace{0.3in}
+
+\textbf{AI makes it worse:}
+
+\begin{itemize}[leftmargin=0.4in,itemsep=0.15in]
+\item Models extract value more efficiently
+\item Erodes traditional protections
+\item \textbf{Risk: extreme power concentration}
+\end{itemize}
+}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{center}
+{\fontsize{32}{40}\selectfont\bfseries\color{accent} The Solution}
+\end{center}
+
+\vspace{0.3in}
+
+{\fontsize{20}{26}\selectfont\color{primary}
+
+\textbf{CBI creates friction to:}
+
+\begin{itemize}[leftmargin=0.4in,itemsep=0.15in]
+\item Prevent unchecked value extraction
+\item Maintain incentives for quality information
+\item Distribute power more evenly
+\end{itemize}
+
+\vspace{0.3in}
+
+\textbf{Benefits:}
+
+\begin{itemize}[leftmargin=0.4in,itemsep=0.15in]
+\item Higher quality data → better AI
+\item Prevents ecosystem collapse
+\item Built-in accountability
+\end{itemize}
+}
+
+\end{minipage}
+
+\vspace{0.7in}
+
+\begin{center}
+
+% IMMEDIATE ACTIONS
+{\fontsize{36}{44}\selectfont\bfseries\color{accent} Immediate Actions}
+
+\vspace{0.5in}
+
+\begin{minipage}[t]{0.18\textwidth}
+\centering
+\colorbox{light}{\parbox{0.95\linewidth}{
+\centering
+\vspace{0.3in}
+{\fontsize{17}{22}\selectfont\bfseries\color{accent}
+Information\\Creators
+}
+
+\vspace{0.25in}
+
+{\fontsize{15}{20}\selectfont\color{primary}
+Form data\\intermediaries
+}
+\vspace{0.3in}
+}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.18\textwidth}
+\centering
+\colorbox{light}{\parbox{0.95\linewidth}{
+\centering
+\vspace{0.3in}
+{\fontsize{17}{22}\selectfont\bfseries\color{accent}
+Researchers
+}
+
+\vspace{0.25in}
+
+{\fontsize{15}{20}\selectfont\color{primary}
+Build valuation\\and control tools
+}
+\vspace{0.3in}
+}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.18\textwidth}
+\centering
+\colorbox{light}{\parbox{0.95\linewidth}{
+\centering
+\vspace{0.3in}
+{\fontsize{17}{22}\selectfont\bfseries\color{accent}
+Regulators
+}
+
+\vspace{0.25in}
+
+{\fontsize{15}{20}\selectfont\color{primary}
+Provide\\safe harbors
+}
+\vspace{0.3in}
+}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.18\textwidth}
+\centering
+\colorbox{light}{\parbox{0.95\linewidth}{
+\centering
+\vspace{0.3in}
+{\fontsize{17}{22}\selectfont\bfseries\color{accent}
+AI Safety
+}
+
+\vspace{0.25in}
+
+{\fontsize{15}{20}\selectfont\color{primary}
+Support\\CBI work
+}
+\vspace{0.3in}
+}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.18\textwidth}
+\centering
+\colorbox{light}{\parbox{0.95\linewidth}{
+\centering
+\vspace{0.3in}
+{\fontsize{17}{22}\selectfont\bfseries\color{accent}
+Tech\\Companies
+}
+
+\vspace{0.25in}
+
+{\fontsize{15}{20}\selectfont\color{primary}
+Engage in\\good faith
+}
+\vspace{0.3in}
+}}
+\end{minipage}
+
+\vspace{0.7in}
+
+\end{center}
+
+% BOTTOM TWO COLUMNS
+\begin{minipage}[t]{0.48\textwidth}
+\begin{center}
+{\fontsize{32}{40}\selectfont\bfseries\color{accent} The Stakes}
+\end{center}
+
+\vspace{0.3in}
+
+{\fontsize{20}{26}\selectfont\color{primary}
+
+\textbf{Political \& Moral:}
+
+\begin{itemize}[leftmargin=0.4in,itemsep=0.15in]
+\item Democratic instability
+\item Narrowed cultural diversity
+\item Homogenization of norms
+\end{itemize}
+
+\vspace{0.3in}
+
+\textbf{Technical:}
+
+\begin{itemize}[leftmargin=0.4in,itemsep=0.15in]
+\item Fragile ecosystems
+\item Less reliable models
+\item Unpredictable harms
+\end{itemize}
+}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{center}
+{\fontsize{32}{40}\selectfont\bfseries\color{accent} Technical Foundations}
+\end{center}
+
+\vspace{0.3in}
+
+{\fontsize{20}{26}\selectfont\color{primary}
+
+\textbf{Data Valuation:}
+
+\begin{itemize}[leftmargin=0.4in,itemsep=0.15in]
+\item Influence functions, data Shapley
+\item Scaling studies
+\end{itemize}
+
+\vspace{0.3in}
+
+\textbf{Data Control:}
+
+\begin{itemize}[leftmargin=0.4in,itemsep=0.15in]
+\item Federated learning
+\item Provenance tracking
+\item Robustness research
+\end{itemize}
+
+\vspace{0.3in}
+
+\colorbox{accent!10}{\parbox{0.95\linewidth}{
+\centering
+\vspace{0.2in}
+{\fontsize{18}{24}\selectfont\bfseries\color{primary}
+Ground bargaining in credible evidence
+}
+\vspace{0.2in}
+}}
+}
+
+\end{minipage}
+
+\vspace{0.7in}
+
+\begin{center}
+
+% TAKEAWAY
+\begin{tikzpicture}
+\node[rectangle,fill=white,draw=accent,line width=5pt,inner sep=0.7in,text width=30in,align=center] {
+{\fontsize{30}{38}\selectfont\bfseries\color{accent}
+A healthy information economy incentivizes creation and distributes power evenly
+}
+
+\vspace{0.3in}
+
+{\fontsize{24}{30}\selectfont\color{primary}
+Collective bargaining for information is one step toward that goal
+}
+
+\vspace{0.3in}
+
+{\fontsize{20}{26}\selectfont\color{medium}
+\texttt{nvincent@sfu.ca} \quad \texttt{matt@radicalxchange.org} \quad \texttt{lihanlin@utexas.edu}
+}
+};
+\end{tikzpicture}
+
+\end{center}
+
+\end{document}
