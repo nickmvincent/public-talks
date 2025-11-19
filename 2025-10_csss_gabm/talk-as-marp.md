@@ -10,13 +10,16 @@ paginate: true
 
 **Will Recent AI Advances Enable New Social Science, Destroy Ecosystems for Knowledge, or Something More Subdued?**
 
+
+VINCI Seminar Series, Nov 19, 2025
+
 ---
 
 ## Follow Along Front Matter
 
 Find a text file with a bunch of links at nickmvincent.com/static/csss-talk.txt
 
-PDF, MD, Semantic Scholar link w/ mentioned papers,
+PDF, MD, Semantic Scholar link w/ mentioned papers.
 
 ---
 
@@ -80,7 +83,7 @@ Another important one to me: I think that data transparency combined with data a
 
 **Three concrete paths to achieve LLM training data transparency:**
 - Convince all our friends at tech companies that this matters!
-- Convince regulators (see e.g. California, Utah)
+- Convince regulators (see e.g., California, Utah)
 - Convince bodies interested in transparency (public bodies) to build and deploy models
   - See e.g. Apertus, recent Swiss model
 
@@ -176,7 +179,7 @@ See Gao et al. 2020 ([link](https://arxiv.org/abs/2101.00027))
 Individual contributions are small, but:
 - They collectively determine what the model "knows"
 - Specific domains/communities can have outsized influence
-- But we can't trace backward from outputs to data sources
+- But we can't (yet) trace backward from outputs to data sources
 
 ---
 
@@ -198,13 +201,23 @@ AI models would have different "behaviors".
 
 ---
 
+
+## Caveat: Not just producing regurgitated pre-training data
+
+- Fine-tuning matters
+- Prompting matters
+
+---
+
+
 ## One recent work: Generating Misinfo Jailbreaks, Comparing them to Social Media Data
 
-"An Audit and Analysis of LLM-Assisted Health Misinformation Jailbreaks Against LLMs" ([link](https://arxiv.org/abs/2508.10010)) - upcoming at AIES later this month
+"An Audit and Analysis of LLM-Assisted Health Misinformation Jailbreaks Against LLMs" ([link](https://arxiv.org/abs/2508.10010))
 - with Ayana Hussain, Patrick Zhao
 
-LLMs can be very good at:
+LLMs can be simultaneously very good at:
 - Generating jailbreaks that get other LLMs to produce misinformation
+- Producing outputs that look in some ways (but not all!) like "real world" posts
 - Detecting LLM-produced misinformation
 
 ---
@@ -215,6 +228,10 @@ Baumann, Joachim, Paul Rottger, Aleksandra Urman, Albert Wendsjo, Flor Miriam Pl
 
 
 "We quantify the risk of LLM hacking by replicating 37 data annotation tasks from 21 published social science research studies with 18 different models"
+
+---
+
+So LLMs are very flexible/malleable, but also -- the outputs do derive from real data in a literal sense.
 
 ---
 
@@ -272,14 +289,9 @@ Technical aspects of the work involve data poisoning, scaling, attribution, etc.
 ## Data Leverage & Collective Bargaining for Information
 
 **Personal interest area:** Collective bargaining for information to:
+
 - Cushion economic shocks from automation of knowledge work
 - Prevent concentration of power by winners in the AI Race
-
----
-
-## Data Leverage and Bluesky / AT Proto (new blogging, source control, etc.)
-
-**Connection to Bluesky:** Keen to connect on Data Leverage-y topics in the context of Bluesky - great discussion at FAccT this year about atproto and these topics
 
 ---
 
@@ -298,15 +310,12 @@ Disadvantages to be sure ("governments can never compete with Big Tech!"), but a
 ## Content Ecosystem Concerns
 
 **The hypothesis:**
+
 1. AI substitutes for Wikipedia/Stack Overflow/etc.
 2. People stop visiting these platforms
 3. Volunteer energy "dries up"
 4. New AI models get worse (Wikipedia not updated)
 5. Feedback loop wipes out communities
-
----
-
-**Shout out:** CDSC work on ecology of online communities (started listing names but didn't want to miss anyone!)
 
 See also Tipping Points for Content Ecosystems ([link](https://dataleverage.substack.com/p/tipping-points-for-content-ecosystems))
 
@@ -382,7 +391,7 @@ In simulation literature: **"dynamical sufficiency"** = how well simulation capt
 
 Consider: accurately plotting a curve without necessarily understanding the underlying mechanism
 
-LLMs seemed to move us up the dynamical sufficiency scale (larger action space)
+LLMs seem to move us up the dynamical sufficiency scale (larger action space)
 
 ---
 
@@ -435,6 +444,7 @@ API-based models introduce instability:
 Even technical approaches (checking if distributions match) remain "phenomenal"
 
 Mechanisms can be stochastic, but if deterministic:
+
 **LLMs may not be deterministic in practice** even with same seed/temperature
 
 - See e.g. very recent "Thinking Machines" work
@@ -453,6 +463,11 @@ Large providers almost certainly split operations across multiple GPUs
 
 ---
 
+Maybe the determinism stuff is not a big deal for just trying to compute expected values for social behavior...
+
+---
+
+
 <!-- _class: lead -->
 
 ## Part 3: A Framework for Better Simulation
@@ -466,11 +481,6 @@ Large providers almost certainly split operations across multiple GPUs
 - Too much historical work on modeling to catch up on
 
 **Goal:** Reduce overhead of needing domain knowledge from philosophy of science
-
----
-
-(In the spirt of this seminar, it seems we really need people chatting across departments, our CS grad students to get course credit for going to take an STS course...)
-
 ---
 
 ## The STIE Scale
@@ -503,7 +513,6 @@ Examples of level 0:
 
 **Level 1:**
 Target phenomenon **T** needs to be operationalized to be falsifiable
-
 
 ---
 
