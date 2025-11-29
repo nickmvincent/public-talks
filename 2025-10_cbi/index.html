@@ -262,9 +262,10 @@
             text-align: center;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 2rem;
+            justify-content: space-evenly;
+            gap: 2.5rem;
             flex-wrap: wrap;
+            width: 100%;
         }
 
         .diagram-container {
@@ -276,10 +277,11 @@
             background: rgba(100, 100, 240, 0.1);
             border: 2px solid var(--accent);
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 1.6rem;
             display: inline-block;
-            min-width: 200px;
-            max-width: 220px;
+            min-width: 230px;
+            max-width: 260px;
+            flex: 1 1 240px;
             vertical-align: middle;
         }
 
@@ -293,9 +295,9 @@
 
         .diagram-node.circle {
             border-radius: 50%;
-            width: 160px;
-            height: 160px;
-            min-width: 160px;
+            width: 180px;
+            height: 180px;
+            min-width: 180px;
             padding: 1rem;
             display: inline-flex;
             align-items: center;
@@ -314,9 +316,9 @@
         }
 
         body.poster-mode .container {
-            max-width: 26.5in;
+            max-width: 27.5in;
             width: 100%;
-            padding: 1in;
+            padding: 0.85in;
             background: var(--poster-bg);
         }
 
@@ -334,22 +336,22 @@
         }
 
         body.poster-mode h1 {
-            font-size: 4rem;
+            font-size: 4.4rem;
             letter-spacing: 0.08em;
         }
 
         body.poster-mode .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 1.6rem;
         }
 
         body.poster-mode .authors {
-            font-size: 1.35rem;
+            font-size: 1.45rem;
         }
 
         body.poster-mode .affiliations,
         body.poster-mode .conference {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
         }
 
         body.poster-mode .poster-flow {
@@ -379,6 +381,10 @@
             margin-bottom: 0;
         }
 
+        body.poster-mode .two-col > * {
+            height: 100%;
+        }
+
         body.poster-mode .card,
         body.poster-mode .actions,
         body.poster-mode .hero,
@@ -387,29 +393,32 @@
             box-shadow: none;
             background: rgba(255, 255, 255, 0.92);
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         body.poster-mode .card h2,
         body.poster-mode .actions h2,
         body.poster-mode .takeaway h2 {
             color: var(--primary);
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             margin-bottom: 1rem;
         }
 
         body.poster-mode h3 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
         }
 
         body.poster-mode p,
         body.poster-mode li {
-            font-size: 1.15rem;
-            line-height: 1.5;
+            font-size: 1.2rem;
+            line-height: 1.55;
         }
 
         body.poster-mode .action-grid {
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 0.6in;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.55in;
         }
 
         body.poster-mode .action-item {
@@ -425,6 +434,24 @@
 
         body.poster-mode .container {
             box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+
+        body.poster-mode .diagram {
+            gap: 3rem;
+            justify-content: space-evenly;
+        }
+
+        body.poster-mode .diagram-node {
+            min-width: 260px;
+            max-width: 320px;
+            flex: 1 1 280px;
+        }
+
+        body.poster-mode .diagram-node.circle {
+            width: 200px;
+            height: 200px;
+            min-width: 200px;
+            font-size: 1.2rem;
         }
 
         @media print {
@@ -447,9 +474,9 @@
             }
 
             .container {
-                max-width: none;
+                max-width: 27.5in;
                 width: 100%;
-                padding: 0.75in;
+                padding: 0.85in;
             }
 
             header {
@@ -458,21 +485,21 @@
             }
 
             h1 {
-                font-size: 4rem;
+                font-size: 4.4rem;
                 letter-spacing: 0.08em;
             }
 
             .subtitle {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .authors {
-                font-size: 1.35rem;
+                font-size: 1.45rem;
             }
 
             .affiliations,
             .conference {
-                font-size: 1.15rem;
+                font-size: 1.2rem;
             }
 
             .poster-flow {
@@ -502,6 +529,10 @@
                 margin-bottom: 0;
             }
 
+            .two-col > * {
+                height: 100%;
+            }
+
             .card,
             .actions,
             .hero,
@@ -510,29 +541,32 @@
                 box-shadow: none;
                 background: rgba(255, 255, 255, 0.92);
                 border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
             }
 
             .card h2,
             .actions h2,
             .takeaway h2 {
-                font-size: 2.2rem;
+                font-size: 2.3rem;
                 color: var(--primary);
                 margin-bottom: 1rem;
             }
 
             h3 {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
 
             p,
             li {
-                font-size: 1.15rem;
-                line-height: 1.5;
+                font-size: 1.2rem;
+                line-height: 1.55;
             }
 
             .action-grid {
-                grid-template-columns: repeat(5, minmax(0, 1fr));
-                gap: 0.6in;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 0.55in;
             }
 
             .action-item {
@@ -690,12 +724,20 @@
                         <p>Form and join data intermediaries that handle data flow to AI builders</p>
                     </div>
                     <div class="action-item">
-                        <h3>Technical Community</h3>
-                        <p>Deliver interpretability, attribution, and data control tools. Data valuation + human-centered interfaces especially high value. Tell people about value of data to make negotiations work better!</p>
+                        <h3>ML Community</h3>
+                        <p>Ship attribution, consent, and robustness into model pipelines; do data valuation to make negotiations credible.</p>
                     </div>
                     <div class="action-item">
-                        <h3>Regulators</h3>
-                        <p>Critical: Provide antitrust safe harbors for creator organizations to participate in CBI</p>
+                        <h3>HCI Community</h3>
+                        <p>Design usable consent, opt-out, and bargaining interfaces that keep humans in the loop.</p>
+                    </div>
+                    <div class="action-item">
+                        <h3>Urgent Policy Actions</h3>
+                        <p>Provide antitrust safe harbors and clarity so creator organizations can participate in CBI now.</p>
+                    </div>
+                    <div class="action-item">
+                        <h3>Long-term Policy Framework</h3>
+                        <p>Set durable rules for data use, audits, and recourse in AI supply chains.</p>
                     </div>
                     <div class="action-item">
                         <h3>AI Safety Community</h3>
