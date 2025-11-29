@@ -480,7 +480,10 @@ Maybe the determinism stuff is not a big deal for just trying to compute expecte
 - Shared pain point across many projects
 - Too much historical work on modeling to catch up on
 
+---
+
 **Goal:** Reduce overhead of needing domain knowledge from philosophy of science
+
 ---
 
 ## The STIE Scale
